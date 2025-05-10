@@ -17,6 +17,8 @@
   </tr>
 </table>
 
+![Diagrama da aplicação](images/diagram.png)
+
 ## Technologies Used - Tecnologias Empregadas
 
 <table style="border: none; border-collapse: collapse;">
