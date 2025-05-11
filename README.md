@@ -12,89 +12,50 @@
 
 ## Application Setup Process - Processo de Setup da aplicação
 
-<table><tbody><tr><td><p>Considering we are in a Windows operating system environment and Docker Desktop is already installed and running, we can proceed with the following steps.</p><h3>Installing Redis Locally with Docker Desktop - Instalando Redis localmente com Docker Desktop</h3><p>Run the command below to download and start the Redis Server container in your local Docker environment.</p><pre><code class="language-plaintext">  docker run -d --name redis-server -p 6379:6379 -v redis-data:/data redis</code></pre><h3>Service Testing</h3><p>The command below performs a test to check if Redis is running properly.</p><pre><code class="language-plaintext">docker exec -it redis-server redis-cli
-&gt; SET meuTeste “Bom dia Carlos Vamberto Filho”
-&gt; GET meuTest
-&gt; exit</code></pre><h3>Installing MySQL Locally with Docker Desktop</h3><p>We will also run MySQL in a container for use in this application. With the command below, we will run MySQL on the default port 3306.</p><pre><code class="language-plaintext">docker run --name mysql-local -e MYSQL_ROOT_PASSWORD=Senha123  -p 3306:3306</code></pre><h3>Creating the Restaurant Table</h3><p>I used the MySQL Workbench application to connect to the MySQL server and create the restaurant table in a new database called “meubanco”.</p><pre><code class="language-plaintext">-- Cria o banco de dados se ainda não existir
-CREATE DATABASE IF NOT EXISTS meubanco CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
--- Usa o banco de dados
-USE meubanco;
--- Criação da tabela restaurantes
-CREATE TABLE IF NOT EXISTS restaurantes (
-    Id INT AUTO_INCREMENT PRIMARY KEY,
-    Nome VARCHAR(255) NOT NULL,
-    Tipo VARCHAR(100),
-    Endereco VARCHAR(255),
-    Cidade VARCHAR(100),
-    Regiao VARCHAR(100),
-    Pais VARCHAR(100)
-);</code></pre><h3>Inserts records into the Restaurants table</h3><p>Here we will create records for 50 existing restaurants in the Algarve region of Portugal to demonstrate the API. Run the script below to insert the records:</p>
+> Considering we are in a Windows operating system environment and Docker Desktop is already installed and running, we can proceed with the following steps.
 
-<pre><code class="language-plaintext">
-USE meubanco;
+_Considerando que estamos em um ambiente com sistema operacional **Windows** e que o **Docker Desktop** já está instalado e em execução, podemos seguir com os passos a seguir._
 
-INSERT INTO restaurantes (Nome, Tipo, Endereco, Cidade, Regiao, Pais) VALUES
-('Luar da Foia', 'Portuguesa tradicional', 'Estrada da Foia', 'Monchique', 'Algarve', 'Portugal'),
-('Petisqueira 3 em Pipa', 'Petiscos', 'Rua do Prior 3', 'Faro', 'Algarve', 'Portugal'),
-('Casa da Rocha', 'Marisqueira', 'Praia da Rocha', 'Portimao', 'Algarve', 'Portugal'),
-('Sueste', 'Portuguesa tradicional', 'Rua Infante D. Henrique 55', 'Ferragudo', 'Algarve', 'Portugal'),
-('Vai e Volta', 'Grelhados de peixe', 'Avenida 5 de Outubro', 'Olhao', 'Algarve', 'Portugal'),
-('Matuya Sushi', 'Japonesa', 'Avenida Beira Mar', 'Armacao de Pera', 'Algarve', 'Portugal'),
-('Sexy Meat', 'Churrascaria', 'Rua Almeida Garrett', 'Albufeira', 'Algarve', 'Portugal'),
-('BJ''s Oceanside', 'Peixes e mariscos', 'Praia do Almargem', 'Quarteira', 'Algarve', 'Portugal'),
-('Oliwander''s', 'Portuguesa contemporanea', 'Rua da Porta de Loule', 'Loule', 'Algarve', 'Portugal'),
-('Taberna da Mare', 'Petiscos', 'Rua Direita 70', 'Portimao', 'Algarve', 'Portugal'),
-('Tasca da Lota', 'Portuguesa tradicional', 'Avenida dos Descobrimentos', 'Lagos', 'Algarve', 'Portugal'),
-('Pomò La Pasta Italiana', 'Italiana', 'Rua 25 de Abril', 'Lagos', 'Algarve', 'Portugal'),
-('Go Bao', 'Asiatica', 'Rua Conselheiro Joaquim Machado', 'Lagos', 'Algarve', 'Portugal'),
-('Gelicia', 'Gelataria', 'Rua Candido dos Reis', 'Lagos', 'Algarve', 'Portugal'),
-('Ti Raul', 'Snacks e saudavel', 'Rua da Praia', 'Arrifana', 'Algarve', 'Portugal'),
-('Restaurante do Cabrita', 'Marisqueira', 'Rua da Igreja', 'Carrapateira', 'Algarve', 'Portugal'),
-('A Sereia', 'Rodizio de peixe', 'Rua Comandante Matoso', 'Sagres', 'Algarve', 'Portugal'),
-('O Teodosio', 'Frango piri-piri', 'Rua 25 de Abril', 'Guia', 'Algarve', 'Portugal'),
-('Casa do Polvo Tasquinha', 'Polvo e mariscos', 'Rua da Republica', 'Santa Luzia', 'Algarve', 'Portugal'),
-('Polvo & Companhia', 'Polvo e mariscos', 'Rua da Liberdade', 'Santa Luzia', 'Algarve', 'Portugal'),
-('Ria', 'Peixes e mariscos', 'Anantara Vilamoura', 'Vilamoura', 'Algarve', 'Portugal'),
-('Café Correia', 'Marisqueira', 'Rua 1º de Maio', 'Vila do Bispo', 'Algarve', 'Portugal'),
-('Bon Bon', 'Gastronomia contemporanea', 'Rua do Monte Carvoeiro', 'Carvoeiro', 'Algarve', 'Portugal'),
-('Prato Cheio', 'Portuguesa tradicional', 'Rua Dr. Francisco Sa Carneiro 23A', 'Lagos', 'Algarve', 'Portugal'),
-('Casa da Igreja', 'Marisqueira', 'Rua de Cacela Velha 2', 'Cacela Velha', 'Algarve', 'Portugal'),
-('Vila Lisa', 'Portuguesa tradicional', 'Rua da Hortinha', 'Portimao', 'Algarve', 'Portugal'),
-('O Tonel', 'Portuguesa tradicional', 'Rua Dr. Augusto da Silva Carvalho', 'Tavira', 'Algarve', 'Portugal'),
-('Cha Cha Cha', 'Portuguesa contemporanea', 'Rua Vasco da Gama', 'Olhao', 'Algarve', 'Portugal'),
-('O Cantinho da Cristina', 'Portuguesa tradicional', 'Rua do Comercio', 'Olhao', 'Algarve', 'Portugal'),
-('Restaurante Noelia', 'Peixes e mariscos', 'Avenida Ria Formosa', 'Cabanas de Tavira', 'Algarve', 'Portugal'),
-('Restaurante Azenha do Mar', 'Marisqueira', 'Estrada Nacional 120', 'Aljezur', 'Algarve', 'Portugal'),
-('Restaurante O Camilo', 'Peixes e mariscos', 'Praia do Camilo', 'Lagos', 'Algarve', 'Portugal'),
-('Restaurante O Marinheiro', 'Mediterranea', 'Rua da Torre Velha', 'Albufeira', 'Algarve', 'Portugal'),
-('Restaurante O Pescador', 'Peixes e mariscos', 'Rua 5 de Outubro', 'Quarteira', 'Algarve', 'Portugal'),
-('Restaurante A Forja', 'Portuguesa tradicional', 'Rua da Barca', 'Portimao', 'Algarve', 'Portugal'),
-('Restaurante O Alambique', 'Portuguesa tradicional', 'Estrada Nacional 125', 'Almancil', 'Algarve', 'Portugal'),
-('Restaurante O Cais', 'Peixes e mariscos', 'Avenida dos Descobrimentos', 'Vilamoura', 'Algarve', 'Portugal'),
-('Restaurante O Galeão', 'Portuguesa tradicional', 'Rua da Praia', 'Armação de Pêra', 'Algarve', 'Portugal'),
-('Restaurante A Tasca', 'Petiscos', 'Rua do Comércio', 'Loulé', 'Algarve', 'Portugal'),
-('Restaurante O Farol', 'Peixes e mariscos', 'Praia do Farol', 'Ilha do Farol', 'Algarve', 'Portugal'),
-('Restaurante O Pátio', 'Portuguesa tradicional', 'Rua das Flores', 'Tavira', 'Algarve', 'Portugal'),
-('Restaurante O Barril', 'Peixes e mariscos', 'Praia do Barril', 'Tavira', 'Algarve', 'Portugal'),
-('Restaurante O Zé', 'Portuguesa tradicional', 'Rua da Alegria', 'Faro', 'Algarve', 'Portugal'),
-('Restaurante O Pescador', 'Peixes e mariscos', 'Rua da Praia', 'Quarteira', 'Algarve', 'Portugal'),
-('Restaurante A Marisqueira', 'Marisqueira', 'Avenida Marginal', 'Lagos', 'Algarve', 'Portugal'),
-('Restaurante O Grelhador', 'Grelhados', 'Rua do Sol', 'Portimão', 'Algarve', 'Portugal'),
-('Restaurante O Forno', 'Portuguesa tradicional', 'Rua do Forno', 'Silves', 'Algarve', 'Portugal'),
-('Restaurante A Taberna', 'Petiscos', 'Rua da Taberna', 'Albufeira', 'Algarve', 'Portugal'),
-('Restaurante O Barco', 'Peixes e mariscos', 'Avenida do Mar', 'Olhão', 'Algarve', 'Portugal'),
-('Restaurante O Pátio das Laranjeiras', 'Portuguesa tradicional', 'Rua das Laranjeiras', 'Loulé', 'Algarve', 'Portugal');
+### Installing Redis Locally with Docker Desktop - Instalando Redis localmente com Docker Desktop
 
-</code></p>
+> Run the command below to download and start the Redis Server container in your local Docker environment.
 
-</td><td style="width:50%;"><p>Considerando que estamos em um ambiente com sistema operacional Windows e que o Docker Desktop já está instalado e em execução, podemos seguir com os passos a seguir.</p><h3>Instalando Redis localmente com Docker Desktop</h3><p>Execute o comando abaixo para baixar e iniciar o contêiner do Redis Server no seu ambiente Docker local.</p><pre><code class="language-plaintext">  docker run -d --name redis-server -p 6379:6379 -v redis-data:/data redis</code></pre><h3>Testar o Serviço</h3><p>O camando abixo faz um teste para ver se o Redis está em funcionamento.</p><pre><code class="language-plaintext">docker exec -it redis-server redis-cli
-&gt; SET meuTeste “Bom dia Carlos Vamberto Filho”
-&gt; GET meuTest
-&gt; exit</code></pre><h3>Installing MySQL Locally with Docker Desktop</h3><p>Vamos também rodar em um container o MySQL que usaremos nesta aplicação. Com o comando abaixo vamos rodar o MySQL na porta padrão 3306.</p>
+Execute o comando abaixo para baixar e iniciar o contêiner do Redis Server no seu ambiente Docker local.
 
-<pre><code class="language-plaintext">docker run --name mysql-local -e MYSQL_ROOT_PASSWORD=Senha123  -p 3306:3306</code></pre><h3>Criando a tabela Restaurante</h3><p>Usei a aplicação MySQL Workbench para me conectar ao servidor do MySQL e criar a tabela de restaurantes em uma nova base de dados chamada “meubanco”.</p>
+```plaintext
+  docker run -d --name redis-server -p 6379:6379 -v redis-data:/data redis
+```
 
-<pre><code class="language-plaintext">
+### Service Testing
+
+> The command below performs a test to check if Redis is running properly.
+
+O camando abaixo faz um teste para ver se o Redis está em funcionamento
+
+```plaintext
+docker exec -it redis-server redis-cli
+> SET meuTeste “Bom dia Carlos Vamberto Filho”
+> GET meuTest
+> exit
+```
+
+### Installing MySQL Locally with Docker Desktop
+
+> We will also run MySQL in a container for use in this application. With the command below, we will run MySQL on the default port 3306.
+
+Vamos também rodar em um container o MySQL que usaremos nesta aplicação. Com o comando abaixo vamos rodar o MySQL na porta padrão 3306
+
+```plaintext
+docker run --name mysql-local -e MYSQL_ROOT_PASSWORD=Senha123  -p 3306:3306
+```
+
+### Creating the Restaurant Table
+
+> I used the MySQL Workbench application to connect to the MySQL server and create the restaurant table in a new database called “meubanco”.
+
+Usei a aplicação MySQL Workbench para me conectar ao servidor do MySQL e criar a tabela de restaurantes em uma nova base de dados chamada “meubanco”
+
+```plaintext
 -- Cria o banco de dados se ainda não existir
 CREATE DATABASE IF NOT EXISTS meubanco CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 -- Usa o banco de dados
@@ -108,11 +69,17 @@ CREATE TABLE IF NOT EXISTS restaurantes (
     Cidade VARCHAR(100),
     Regiao VARCHAR(100),
     Pais VARCHAR(100)
-);</code></pre>
+);
+```
 
-<h3>Insere registros na tabela Restaurantes</h3><p>Aqui vamos criar registros para 50 restaurantes existentes na região do Algarve em Portugal para demonstrar a API. Execute o script abaixo para inserir os registros:</p>
+### Inserts records into the Restaurants table
 
-<pre><code class="language-plaintext">
+> Here we will create records for 50 existing restaurants in the Algarve region of Portugal to demonstrate the API. Run the script below to insert the records:
+
+Aqui vamos criar registros para 50 restaurantes existentes na região do Algarve em Portugal para demonstrar a API.Execute o script abaixo para inserir os registros:
+
+```plaintext
+
 USE meubanco;
 
 INSERT INTO restaurantes (Nome, Tipo, Endereco, Cidade, Regiao, Pais) VALUES
@@ -166,167 +133,55 @@ INSERT INTO restaurantes (Nome, Tipo, Endereco, Cidade, Regiao, Pais) VALUES
 ('Restaurante A Taberna', 'Petiscos', 'Rua da Taberna', 'Albufeira', 'Algarve', 'Portugal'),
 ('Restaurante O Barco', 'Peixes e mariscos', 'Avenida do Mar', 'Olhão', 'Algarve', 'Portugal'),
 ('Restaurante O Pátio das Laranjeiras', 'Portuguesa tradicional', 'Rua das Laranjeiras', 'Loulé', 'Algarve', 'Portugal');
-
-</td></tr></tbody></table>
+```
 
 ## Clean Architecture
 
-<table><tbody><tr><td><p><strong>Clean Architecture</strong>, proposed by Robert C. Martin (known as Uncle Bob), is an architectural style that aims to organize the code in such a way that the application's business rules are independent of frameworks, external libraries, databases, and user interfaces.</p><p><br>Its main goal is to promote <strong>separation of concerns, maintainability, testability, </strong>and<strong> scalability</strong>. To achieve this, the architecture is divided into well-defined layers, each with a specific role:</p><ul><li><strong>Domínio (Entities):</strong> contains the core business rules of the application.</li><li><strong>Casos de uso (Use Cases/Application):</strong> orchestrates the application's behavior and specific business rules.</li><li><strong>Interface de entrada (InterfaceAdapters/API):</strong> handles incoming requests (e.g., API controllers).</li><li><strong>Infraestrutura (Infrastructure):</strong> implements technical details such as database access, external services, caching, etc.</li></ul><p>One of the main advantages of Clean Architecture is <strong>technology independence</strong>. This means that, for example, it's possible to change the database (from SQL Server to MySQL, or Redis for caching) without affecting the business rules.</p><p><br>Adopting Clean Architecture helps development teams build more organized, decoupled, and easy-to-evolve systems—essential characteristics for modern applications, especially when considering scalable REST APIs, as proposed in this article.</p></td><td><p>A <strong>Clean Architecture</strong>, proposta por Robert C. Martin (conhecido como Uncle Bob), é um estilo arquitetural que busca organizar o código de forma que as regras de negócio da aplicação sejam independentes de frameworks, bibliotecas externas, banco de dados e interfaces de usuário.</p><p>&nbsp;</p><p>Seu principal objetivo é promover <strong>separação de responsabilidades</strong>, <strong>facilidade de manutenção</strong>, <strong>testabilidade</strong> e <strong>escalabilidade</strong>. Para isso, a arquitetura é dividida em camadas bem definidas, onde cada uma possui seu papel específico:</p><ul><li><strong>Domínio (Entities):</strong> contém as regras de negócio mais centrais da aplicação.</li><li><strong>Casos de uso (Use Cases/Application):</strong> orquestra o comportamento da aplicação e as regras específicas de negócio.</li><li><strong>Interface de entrada (InterfaceAdapters/API):</strong> recebe as requisições (ex: controllers da API).</li><li><strong>Infraestrutura (Infrastructure):</strong> implementa detalhes técnicos como acesso ao banco de dados, serviços externos, cache etc.</li></ul><p>Uma das principais vantagens da Clean Architecture é a <strong>independência de tecnologia</strong>. Isso significa que, por exemplo, é possível trocar o banco de dados (de SQL Server para MySQL, ou para Redis como cache) sem afetar as regras de negócio.</p><p>&nbsp;</p><p>Adotar Clean Architecture ajuda times de desenvolvimento a construírem sistemas mais organizados, desacoplados e fáceis de evoluir — características essenciais para aplicações modernas, especialmente quando pensamos em APIs REST escaláveis, como a proposta deste artigo.</p></td></tr></tbody></table>
+> **Clean Architecture**, proposed by Robert C. Martin (known as Uncle Bob), is an architectural style that aims to organize the code in such a way that the application's business rules are independent of frameworks, external libraries, databases, and user interfaces.
+> 
+> Its main goal is to promote **separation of concerns, maintainability, testability,** and **scalability**. To achieve this, the architecture is divided into well-defined layers, each with a specific role:
+> 
+> *   **Domínio (Entities):** contains the core business rules of the application.
+> *   **Casos de uso (Use Cases/Application):** orchestrates the application's behavior and specific business rules.
+> *   **Interface de entrada (InterfaceAdapters/API):** handles incoming requests (e.g., API controllers).
+> *   **Infraestrutura (Infrastructure):** implements technical details such as database access, external services, caching, etc.
+> 
+> One of the main advantages of Clean Architecture is **technology independence**. This means that, for example, it's possible to change the database (from SQL Server to MySQL, or Redis for caching) without affecting the business rules.
+> 
+> Adopting Clean Architecture helps development teams build more organized, decoupled, and easy-to-evolve systems—essential characteristics for modern applications, especially when considering scalable REST APIs, as proposed in this article.
+
+A **Clean Architecture**, proposta por Robert C. Martin (conhecido como Uncle Bob), é um estilo arquitetural que busca organizar o código de forma que as regras de negócio da aplicação sejam independentes de frameworks, bibliotecas externas, banco de dados e interfaces de usuário.
+
+Seu principal objetivo é promover **separação de responsabilidades**, **facilidade de manutenção**, **testabilidade** e **escalabilidade**. Para isso, a arquitetura é dividida em camadas bem definidas, onde cada uma possui seu papel específico:
+
+*   **Domínio (Entities):** contém as regras de negócio mais centrais da aplicação.
+*   **Casos de uso (Use Cases/Application):** orquestra o comportamento da aplicação e as regras específicas de negócio.
+*   **Interface de entrada (InterfaceAdapters/API):** recebe as requisições (ex: controllers da API).
+*   **Infraestrutura (Infrastructure):** implementa detalhes técnicos como acesso ao banco de dados, serviços externos, cache etc.
+
+Uma das principais vantagens da Clean Architecture é a **independência de tecnologia**. Isso significa que, por exemplo, é possível trocar o banco de dados (de SQL Server para MySQL, ou para Redis como cache) sem afetar as regras de negócio.
+
+Adotar Clean Architecture ajuda times de desenvolvimento a construírem sistemas mais organizados, desacoplados e fáceis de evoluir — características essenciais para aplicações modernas, especialmente quando pensamos em APIs REST escaláveis, como a proposta deste artigo.
 
 ## Visual Studio 2022
 
-<table><tbody><tr><td><p>Now let's create a blank solution named <strong>RestaurantesAPI</strong> in Visual Studio 2022 and add the following projects:</p><ol><li><strong>Restaurantes.Application</strong> – Class Library - .NET 8</li><li><strong>Restaurantes.Domain</strong> – Class Library - .NET 8</li><li><strong>Restaurantes.Infrastructure</strong> – Class Library -&nbsp;.NET 8</li><li><strong>Restaurantes.API</strong> – ASP.NET Core Web API - .NET 8</li></ol><h2>Restaurantes.Domain</h2><p>Create the <strong>Restaurante.cs</strong> class in the <strong>Entities</strong> folder.</p>
-    
-<pre><code class="language-plaintext">public class Restaurante
-{
-        public int Id { get; set; }
-        public string Nome { get; set; }
-        public string Tipo { get; set; }
-        public string Endereco { get; set; }
-        public string Cidade { get; set; }
-        public string Regiao { get; set; }
-        public string Pais { get; set; }
-}
-</code></pre>
-    
-<p>Create the <strong>IRestauranteRepository.cs</strong> interface in the <strong>Interfaces</strong> folder.</p>
+> Now let's create a blank solution named **RestaurantesAPI** in Visual Studio 2022 and add the following projects:
 
-<pre><code class="language-cs">
-using Restaurantes.Domain.Entities;
+Agora vamos criar uma solução em Branco de nome **RestauratesAPI** no Visual Studio 2022 e adicionar o seguintes projetos:
 
-namespace Restaurantes.Domain.Interfaces
-{
-    public interface IRestauranteRepository
-    {
-        Task<IEnumerable<Restaurante>> GetFilteredAsync(string? nome, string? tipo, string? cidade);
-    }
-} 
+1.  **Restaurantes.Application** – Class Library - .NET 8
+2.  **Restaurantes.Domain** – Class Library - .NET 8
+3.  **Restaurantes.Infrastructure** – Class Library - .NET 8
+4.  **Restaurantes.API** – ASP.NET Core Web API - .NET 8
 
-</code></pre>
+### Restaurantees.Domain
 
-<h2>Restaurantes.Application</h2><p>In <strong>Restaurantes.Application</strong>, add a <strong>Project Reference</strong> to the <strong>Restaurantes.Domain</strong> project by right-clicking on the <strong>Restaurantes.Application</strong> project and selecting <strong>Add &gt; Project Reference...</strong></p><p>&nbsp;</p><p>Then, add the following <strong>IRestauranteService.cs</strong> interface in the <strong>Services</strong> folder.</p>
+> Create the **Restaurante.cs** class in the **Entities** folder.
 
-<pre><code class="language-cs">using Restaurantes.Application.Requests;
-using Restaurantes.Application.Requests;
-using Restaurantes.Domain.Entities;
+Crie a classe **Restaurante.cs** na pasta **Entities**
 
-namespace Restaurantes.Application.Services
-{
-    public interface IRestauranteService
-    {
-        Task<IEnumerable<Restaurante>> GetFilteredAsync(GetRestaurantesRequest request);
-    }
-}
-
-</code></pre><br>&nbsp;</p>
-
-
-<p>Create a class named <strong>GetRestaurantesRequest.cs</strong> in the <strong>Requests</strong> folder.</p><pre><code class="language-cs">namespace Restaurantes.Application.Requests
-{
-    public class GetRestaurantesRequest
-    {
-        public string? Nome { get; set; }
-        public string? Tipo { get; set; }
-        public string? Cidade { get; set; }
-    }
-}
-</code></pre>
-
-<h2>Restaurantes.Infrastructure Project</h2><p>Add a <strong>Project Reference</strong> in <strong>Restaurantes.Infrastructure</strong> to the <strong>Restaurantes.Application</strong> project.</p><p>Using <strong>NuGet</strong>, add the package <strong>Microsoft.Extensions.Caching.StackExchangeRedis</strong> to the <strong>Restaurantes.Infrastructure</strong> project.</p><p>&nbsp;</p><p>Add the <strong>MyDbContext.cs</strong> class in the <strong>Context</strong> folder.</p><pre><code class="language-cs">using Microsoft.EntityFrameworkCore;
-using Restaurantes.Domain.Entities;
-namespace Restaurantes.Infrastructure.Context
-{
-    public class MyDbContext : DbContext
-    {
-        public MyDbContext(DbContextOptions&lt;MyDbContext&gt; options) : base(options) { }
-    public DbSet&amp;lt;Restaurante&amp;gt; Restaurantes { get; set; }
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Entity&amp;lt;Restaurante&amp;gt;().ToTable("restaurantes");
-    }
-}
-</code></pre><p><code>}</code><br>&nbsp;</p><p>Create the <strong>RestauranteRepository.cs</strong> class that will implement the <strong>IRestauranteRepository.cs</strong> interface.</p><pre><code class="language-cs">using Microsoft.EntityFrameworkCore;
-using Restaurantes.Domain.Entities;
-using Restaurantes.Domain.Interfaces;
-using Restaurantes.Infrastructure.Context;
-namespace Restaurantes.Infrastructure.Repositories
-{
-    public class RestauranteRepository : IRestauranteRepository
-    {
-        private readonly MyDbContext _context;
-    public RestauranteRepository(MyDbContext context)
-    {
-        _context = context;
-    }
-
-    public async Task&amp;lt;IEnumerable&amp;lt;Restaurante&amp;gt;&amp;gt; GetFilteredAsync(string? nome, string? tipo, string? cidade)
-    {
-        var query = _context.Restaurantes.AsQueryable();
-
-        if (!string.IsNullOrEmpty(nome))
-            query = query.Where(r =&amp;gt; r.Nome.Contains(nome));
-        if (!string.IsNullOrEmpty(tipo))
-            query = query.Where(r =&amp;gt; r.Tipo.Contains(tipo));
-        if (!string.IsNullOrEmpty(cidade))
-            query = query.Where(r =&amp;gt; r.Cidade.Contains(cidade));
-
-        return await query.ToListAsync();
-    }
-}
-</code></pre><p><code>}</code><br>&nbsp;</p><h2>Restaurantes.API Project</h2><p>Add a <strong>Project Reference</strong> in the <strong>Restaurantes.API</strong> project to the <strong>Restaurantes.Infrastructure</strong> project.</p><p>Add the following <strong>ConnectionStrings</strong> section to the <strong>appsettings.json</strong> file:</p><pre><code class="language-javascript">"ConnectionStrings": {
-  "Redis": "localhost:6379",
-  "DefaultConnection": "server=localhost;port=3306;database=meubanco;user=root;password=Senha123"
-}
-</code></pre><p>Add the following code in the <strong>Program.cs</strong> file <strong>before</strong> the line "var app = builder.Build();".</p><pre><code class="language-cs">// Configura a conexão com a base de dados MySQL
-builder.Services.AddDbContext&lt;MyDbContext&gt;(options =&gt;
-    options.UseMySql(
-        builder.Configuration.GetConnectionString("DefaultConnection"),
-        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))
-    )
-);
-// Configura o Redis como cache distribuído
-builder.Services.AddStackExchangeRedisCache(options =&gt;
-{
-    options.Configuration = builder.Configuration.GetConnectionString("Redis");
-    options.InstanceName = "RestaurantesCache:";
-});
-</code></pre><p><code>// Configura a injeção de dependências para o repositório e serviço de restaurantes</code><br><code>builder.Services.AddScoped&lt;IRestauranteRepository, RestauranteRepository&gt;();</code><br><code>builder.Services.AddScoped&lt;IRestauranteService, RestauranteService&gt;();</code><br>&nbsp;</p><h3>Creating the Restaurantes API Endpoint.</h3><p>In the <strong>Controllers</strong> folder, create the <strong>RestaurantesController.cs</strong> controller.</p><pre><code class="language-cs">using Microsoft.AspNetCore.Mvc;
-using Restaurantes.Application.Requests;
-using Restaurantes.Application.Services;
-using Restaurantes.Domain.Entities;
-namespace Restaurantes.API.Controllers
-{
-    [Route("api/[controller]")]
-    [ApiController]
-    public class RestaurantesController : ControllerBase
-    {
-        private readonly IRestauranteService _restauranteService;
-    public RestaurantesController(IRestauranteService restauranteService)
-    {
-        _restauranteService = restauranteService;
-    }
-
-    /// &amp;lt;summary&amp;gt;
-    /// Lista restaurantes com base nos filtros fornecidos (Nome, Tipo e Cidade).
-    /// &amp;lt;/summary&amp;gt;
-    [HttpGet]
-    public async Task&amp;lt;ActionResult&amp;lt;IEnumerable&amp;lt;Restaurante&amp;gt;&amp;gt;&amp;gt; Get(
-        [FromQuery] string? nome, [FromQuery] string? tipo, [FromQuery] string? cidade)
-    {
-        var request = new GetRestaurantesRequest
-        {
-            Nome = nome,
-            Tipo = tipo,
-            Cidade = cidade
-        };
-
-        var result = await _restauranteService.GetFilteredAsync(request);
-
-        return Ok(result);
-    }
-}
-</code></pre><p><code>}</code><br>&nbsp;</p><p>&nbsp;</p></td><td><p>Agora vamos criar uma solução em Branco de nome <strong>RestauratesAPI</strong> no Visual Studio 2022 e adicionar o seguintes projetos:</p><ol><li><strong>Restaurantes.Application</strong> – Class Library - .NET 8</li><li><strong>Restaurantes.Domain</strong> – Class Library - .NET 8</li><li><strong>Restaurantes.Infrastructure</strong> – Class Library -&nbsp;.NET 8</li><li><strong>Restaurantes.API</strong> – ASP.NET Core Web API - .NET 8</li></ol><h2>Restaurantes.Domain</h2><p>Crie a classe <strong>Restaurante.cs</strong> na pasta <strong>Entities</strong></p><pre><code class="language-cs">namespace Restaurantes.Domain.Entities
+```cs
+namespace Restaurantes.Domain.Entities
 {
     public class Restaurante
     {
@@ -339,10 +194,52 @@ namespace Restaurantes.API.Controllers
         public string Pais { get; set; }
     }
 }
-</code></pre><p>Crie a Interface <strong>IrestauranteRepository.cs&nbsp;</strong>na pasta <strong>Interfaces</strong></p><pre><code class="language-cs">using Restaurantes.Domain.Entities;
-</code></pre><p><code>namespace Restaurantes.Domain.Interfaces</code><br><code>{</code><br><code>&nbsp; &nbsp; public interface IRestauranteRepository</code><br><code>&nbsp; &nbsp; {</code><br><code>&nbsp; &nbsp; &nbsp; &nbsp; Task&lt;IEnumerable&lt;Restaurante&gt;&gt; GetFilteredAsync(string? nome, string? tipo, string? cidade);</code><br><code>&nbsp; &nbsp; }</code><br><code>}</code><br>&nbsp;</p><h2>Restaurantes.Application</h2><p>No Restaurantes.Application, adicione um <strong>Project Reference</strong> para o projeto <strong>Restaurantes.Domain</strong> usando o botão direito do mouse sobre o projeto <strong>Restaurantes.Application</strong> escolhendo <strong>Add&nbsp;à Project Reference...</strong></p><p>&nbsp;</p><p>Adicione a seguinte interface <strong>IrestauranteService.cs</strong> abaixo na pasta <strong>Services</strong>.</p><pre><code class="language-cs">using Restaurantes.Application.Requests;
+```
+
+> Create the **IRestauranteRepository.cs** interface in the **Interfaces** folder.
+
+Crie a Interface **IrestauranteRepository.cs** na pasta **Interfaces**
+
+```cs
 using Restaurantes.Domain.Entities;
-</code></pre><p><code>namespace Restaurantes.Application.Services</code><br><code>{</code><br><code>&nbsp; &nbsp; public interface IRestauranteService</code><br><code>&nbsp; &nbsp; {</code><br><code>&nbsp; &nbsp; &nbsp; &nbsp; Task&lt;IEnumerable&lt;Restaurante&gt;&gt; GetFilteredAsync(GetRestaurantesRequest request);</code><br><code>&nbsp; &nbsp; }</code><br><code>}</code><br>&nbsp;</p><p>Crie uma classe na pasta <strong>Requests</strong> de nome <strong>GetRestaurantesRequest.cs</strong></p><pre><code class="language-cs">namespace Restaurantes.Application.Requests
+
+namespace Restaurantes.Domain.Interfaces
+{
+    public interface IRestauranteRepository
+    {
+        Task<IEnumerable<Restaurante>> GetFilteredAsync(string? nome, string? tipo, string? cidade);
+    }
+} 
+```
+
+### Restaurantes.Application
+
+> In **Restaurantes.Application**, add a **Project Reference** to the **Restaurantes.Domain** project by right-clicking on the **Restaurantes.Application** project and selecting **Add → Project Reference...**  
+> Add the following **IRestauranteService.cs** interface below in the **Services** folder.
+
+No Restaurantes.Application, adicione um **Project Reference** para o projeto **Restaurantes.Domain** usando o botão direito do mouse sobre o projeto **Restaurantes.Application** escolhendo **Add à Project Reference...**
+
+Adicione a seguinte interface **IrestauranteService.cs** abaixo na pasta **Services**.
+
+```cs
+using Restaurantes.Application.Requests;
+using Restaurantes.Domain.Entities;
+
+namespace Restaurantes.Application.Services
+{
+    public interface IRestauranteService
+    {
+        Task<IEnumerable<Restaurante>> GetFilteredAsync(GetRestaurantesRequest request);
+    }
+}
+```
+
+> Create a class named **GetRestaurantesRequest.cs** in the **Requests** folder.
+
+Crie uma classe na pasta **Requests** de nome **GetRestaurantesRequest.cs**
+
+```cs
+namespace Restaurantes.Application.Requests
 {
     public class GetRestaurantesRequest
     {
@@ -351,54 +248,100 @@ using Restaurantes.Domain.Entities;
         public string? Cidade { get; set; }
     }
 }
-</code></pre><h2>Projeto Restaurantes.Infrastructure</h2><p>Adicione um <strong>Project Reference</strong> no <strong>Restaurantes.Infrastructure</strong> para o projeto <strong>Restaurantes.Application</strong></p><p>Usando o <strong>Nuget</strong> adicione o pacote <strong>Microsoft.Extensions.Caching.StackExchangeRedis&nbsp;</strong>no projeto <strong>Restaurantes.Infrastructure</strong></p><p>&nbsp;</p><p>Adicione a classe <strong>MyDbContext.cs</strong> na pasta <strong>Context</strong></p><pre><code class="language-cs">using Microsoft.EntityFrameworkCore;
+```
+
+### Restaurant.Infrastructure Project
+
+> Add a **Project Reference** in **Restaurantes.Infrastructure** to the **Restaurantes.Application** project.
+> 
+> Using **NuGet**, add the **Microsoft.Extensions.Caching.StackExchangeRedis** package to the **Restaurantes.Infrastructure** project.
+> 
+> Add the **MyDbContext.cs** class in the **Context** folder.
+
+Adicione um **Project Reference** no **Restaurantes.Infrastructure** para o projeto **Restaurantes.Application**  
+Usando o **Nuget** adicione o pacote **Microsoft.Extensions.Caching.StackExchangeRedis** no projeto **Restaurantes.Infrastructure**  
+Adicione a classe **MyDbContext.cs** na pasta **Context**
+
+```cs
+using Microsoft.EntityFrameworkCore;
 using Restaurantes.Domain.Entities;
+
 namespace Restaurantes.Infrastructure.Context
 {
     public class MyDbContext : DbContext
     {
-        public MyDbContext(DbContextOptions&lt;MyDbContext&gt; options) : base(options) { }
-    public DbSet&amp;lt;Restaurante&amp;gt; Restaurantes { get; set; }
+        public MyDbContext(DbContextOptions<MyDbContext> options) : base(options) { }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Entity&amp;lt;Restaurante&amp;gt;().ToTable("restaurantes");
+        public DbSet<Restaurante> Restaurantes { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Restaurante>().ToTable("restaurantes");
+        }
     }
 }
-</code></pre><p><code>}</code><br>&nbsp;</p><p>Crie a classe <strong>RestauranteRepository.cs</strong> que vai implementar a interface <strong>RestauranteRepository.cs</strong></p><pre><code class="language-cs">using Microsoft.EntityFrameworkCore;
+```
+
+> Create the **RestauranteRepository.cs** class that will implement the **IRestauranteRepository.cs** interface.
+
+Crie a classe **RestauranteRepository.cs** que vai implementar a interface **RestauranteRepository.cs**
+
+```cs
+using Microsoft.EntityFrameworkCore;
 using Restaurantes.Domain.Entities;
 using Restaurantes.Domain.Interfaces;
 using Restaurantes.Infrastructure.Context;
+
 namespace Restaurantes.Infrastructure.Repositories
 {
     public class RestauranteRepository : IRestauranteRepository
     {
         private readonly MyDbContext _context;
-    public RestauranteRepository(MyDbContext context)
-    {
-        _context = context;
-    }
 
-    public async Task&amp;lt;IEnumerable&amp;lt;Restaurante&amp;gt;&amp;gt; GetFilteredAsync(string? nome, string? tipo, string? cidade)
-    {
-        var query = _context.Restaurantes.AsQueryable();
+        public RestauranteRepository(MyDbContext context)
+        {
+            _context = context;
+        }
 
-        if (!string.IsNullOrEmpty(nome))
-            query = query.Where(r =&amp;gt; r.Nome.Contains(nome));
-        if (!string.IsNullOrEmpty(tipo))
-            query = query.Where(r =&amp;gt; r.Tipo.Contains(tipo));
-        if (!string.IsNullOrEmpty(cidade))
-            query = query.Where(r =&amp;gt; r.Cidade.Contains(cidade));
+        public async Task<IEnumerable<Restaurante>> GetFilteredAsync(string? nome, string? tipo, string? cidade)
+        {
+            var query = _context.Restaurantes.AsQueryable();
 
-        return await query.ToListAsync();
+            if (!string.IsNullOrEmpty(nome))
+                query = query.Where(r => r.Nome.Contains(nome));
+            if (!string.IsNullOrEmpty(tipo))
+                query = query.Where(r => r.Tipo.Contains(tipo));
+            if (!string.IsNullOrEmpty(cidade))
+                query = query.Where(r => r.Cidade.Contains(cidade));
+
+            return await query.ToListAsync();
+        }
     }
 }
-</code></pre><p><code>}</code><br>&nbsp;</p><p>&nbsp;</p><h2>Projeto Restaurantes.API</h2><p>Adicione uma <strong>Project Reference</strong> no projeto <strong>Restaurantes.API</strong> para o projeto <strong>Restaruantes.Infrastrucure</strong></p><p>Adicione o código abaixo relacionado a <strong>ConnectionStrings</strong> dentro do arquivo <strong>appsettings.json</strong></p><pre><code class="language-javascript">"ConnectionStrings": {
+```
+
+### Restaurantes.API Project
+
+> Add a **Project Reference** in the **Restaurantes.API** project to the **Restaurantes.Infrastructure** project.  
+> Add the following **ConnectionStrings** section to the **appsettings.json** file.
+
+Adicione uma **Project Reference** no projeto **Restaurantes.API** para o projeto **Restaruantes.Infrastrucure**  
+Adicione o código abaixo relacionado a **ConnectionStrings** dentro do arquivo **appsettings.json**
+
+```javascript
+"ConnectionStrings": {
   "Redis": "localhost:6379",
   "DefaultConnection": "server=localhost;port=3306;database=meubanco;user=root;password=Senha123"
 } 
-</code></pre><p>Adicione o código abaixo na class <strong>Program.cs</strong> antes do código&nbsp;“var app = builder.Build();”</p><pre><code class="language-cs">// Configura a conexão com a base de dados MySQL
-builder.Services.AddDbContext&lt;MyDbContext&gt;(options =&gt;
+```
+
+> Add the code below in the **Program.cs** class before the line `var app = builder.Build();`.
+
+Adicione o código abaixo na classe **Program.cs** antes da linha `var app = builder.Build();`.
+
+```cs
+// Configura a conexão com a base de dados MySQL
+builder.Services.AddDbContext<MyDbContext>(options =>
     options.UseMySql(
         builder.Configuration.GetConnectionString("DefaultConnection"),
         ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))
@@ -406,18 +349,29 @@ builder.Services.AddDbContext&lt;MyDbContext&gt;(options =&gt;
 );
 
 // Configura o Redis como cache distribuído
-builder.Services.AddStackExchangeRedisCache(options =&gt;
+builder.Services.AddStackExchangeRedisCache(options =>
 {
     options.Configuration = builder.Configuration.GetConnectionString("Redis");
     options.InstanceName = "RestaurantesCache:";
 });
+
 // Configura a injeção de dependências para o repositório e serviço de restaurantes
-builder.Services.AddScoped&lt;IRestauranteRepository, RestauranteRepository&gt;();
-builder.Services.AddScoped&lt;IRestauranteService, RestauranteService&gt;();
-</code></pre><p>&nbsp;</p><h3>Criando o EndPoint da API de Restaurantes</h3><p>Na pasta Controllers crie o controller RestaurantesController.cs</p><pre><code class="language-cs">using Microsoft.AspNetCore.Mvc;
+builder.Services.AddScoped<IRestauranteRepository, RestauranteRepository>();
+builder.Services.AddScoped<IRestauranteService, RestauranteService>();
+```
+
+### Creating the Restaurantes API Endpoint.
+
+> In the **Controllers** folder, create the **RestaurantesController.cs** controller.
+
+Na pasta **Controllers** crie o controller **RestaurantesController.cs**
+
+```cs
+using Microsoft.AspNetCore.Mvc;
 using Restaurantes.Application.Requests;
 using Restaurantes.Application.Services;
 using Restaurantes.Domain.Entities;
+
 namespace Restaurantes.API.Controllers
 {
     [Route("api/[controller]")]
@@ -425,28 +379,48 @@ namespace Restaurantes.API.Controllers
     public class RestaurantesController : ControllerBase
     {
         private readonly IRestauranteService _restauranteService;
-    public RestaurantesController(IRestauranteService restauranteService)
-    {
-        _restauranteService = restauranteService;
-    }
 
-    /// &amp;lt;summary&amp;gt;
-    /// Lista restaurantes com base nos filtros fornecidos (Nome, Tipo e Cidade).
-    /// &amp;lt;/summary&amp;gt;
-    [HttpGet]
-    public async Task&amp;lt;ActionResult&amp;lt;IEnumerable&amp;lt;Restaurante&amp;gt;&amp;gt;&amp;gt; Get(
-        [FromQuery] string? nome, [FromQuery] string? tipo, [FromQuery] string? cidade)
-    {
-        var request = new GetRestaurantesRequest
+        public RestaurantesController(IRestauranteService restauranteService)
         {
-            Nome = nome,
-            Tipo = tipo,
-            Cidade = cidade
-        };
+            _restauranteService = restauranteService;
+        }
 
-        var result = await _restauranteService.GetFilteredAsync(request);
+        /// <summary>
+        /// Lista restaurantes com base nos filtros fornecidos (Nome, Tipo e Cidade).
+        /// </summary>
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Restaurante>>> Get(
+            [FromQuery] string? nome, [FromQuery] string? tipo, [FromQuery] string? cidade)
+        {
+            var request = new GetRestaurantesRequest
+            {
+                Nome = nome,
+                Tipo = tipo,
+                Cidade = cidade
+            };
 
-        return Ok(result);
+            var result = await _restauranteService.GetFilteredAsync(request);
+
+            return Ok(result);
+        }
     }
 }
-</code></pre><p><code>}</code><br>&nbsp;</p></td></tr></tbody></table>
+```
+
+## **Final Considerations**
+
+> In this article, we explored the creation of a **REST API** using **.NET** and the application of **Redis** as a caching mechanism to optimize performance in data queries. We adopted **Clean Architecture** as the structural foundation of the project, ensuring a cleaner, more modular, and easier-to-maintain organization.
+> 
+> Throughout the development, it was clear how the use of **Redis** significantly contributes to reducing the API's response time, especially in scenarios where the data doesn't change frequently. Additionally, the separation of concerns promoted by Clean Architecture facilitates testability, system evolution, and the replacement of technologies without major impacts on the core of the application.
+> 
+> This approach is highly recommended for projects that require scalability and long-term maintenance, such as recommendation systems, product catalogs, or — as we saw — restaurant queries.
+> 
+> The combined use of modern practices, such as dependency injection, **Entity Framework Core**, and **Redis**, demonstrates how it's possible to build robust, high-performance solutions within the **.NET** ecosystem.
+
+Neste artigo, exploramos a criação de uma **API REST** utilizando **.NET** e a aplicação do **Redis** como mecanismo de cache para otimizar a performance nas consultas de dados. Adotamos a **Clean Architecture** como base estrutural do projeto, garantindo uma organização mais limpa, modular e fácil de manter.
+
+Ao longo do desenvolvimento, foi possível perceber como o uso do **Redis** contribui significativamente para a redução do tempo de resposta da API, especialmente em cenários onde os dados não mudam com frequência. Além disso, a separação de responsabilidades promovida pela Clean Architecture facilita a testabilidade, a evolução do sistema e a substituição de tecnologias sem grandes impactos no núcleo da aplicação.
+
+Essa abordagem é altamente recomendada para projetos que exigem escalabilidade e manutenção a longo prazo, como sistemas de recomendação, catálogos de produtos ou — como vimos — consultas de restaurantes.
+
+O uso combinado de práticas modernas, como injeção de dependência, **Entity Framework Core** e **Redis**, demonstra como é possível construir soluções robustas e de alta performance com o ecossistema **.NET**.
