@@ -28,12 +28,74 @@ CREATE TABLE IF NOT EXISTS restaurantes (
     Cidade VARCHAR(100),
     Regiao VARCHAR(100),
     Pais VARCHAR(100)
-);</code></pre><h3>Inserts records into the Restaurants table</h3><p>Here we will create records for 50 existing restaurants in the Algarve region of Portugal to demonstrate the API. Run the script below to insert the records:</p><pre><code class="language-plaintext">USE meubanco;
+);</code></pre><h3>Inserts records into the Restaurants table</h3><p>Here we will create records for 50 existing restaurants in the Algarve region of Portugal to demonstrate the API. Run the script below to insert the records:</p>
 
-</code></pre><p>&nbsp;</p><p>&nbsp;</p><p><code>INSERT INTO restaurantes (Nome, Tipo, Endereco, Cidade, Regiao, Pais) VALUES</code><br><code>('Luar da Foia', 'Portuguesa tradicional', 'Estrada da Foia', 'Monchique', 'Algarve', 'Portugal'),</code><br><code>('Petisqueira 3 em Pipa', 'Petiscos', 'Rua do Prior 3', 'Faro', 'Algarve', 'Portugal'),</code><br><code>('Casa da Rocha', 'Marisqueira', 'Praia da Rocha', 'Portimao', 'Algarve', 'Portugal'),</code><br><code>('Sueste', 'Portuguesa tradicional', 'Rua Infante D. Henrique 55', 'Ferragudo', 'Algarve', 'Portugal'),</code><br><code>('Vai e Volta', 'Grelhados de peixe', 'Avenida 5 de Outubro', 'Olhao', 'Algarve', 'Portugal'),</code><br><code>('Matuya Sushi', 'Japonesa', 'Avenida Beira Mar', 'Armacao de Pera', 'Algarve', 'Portugal'),</code><br><code>('Sexy Meat', 'Churrascaria', 'Rua Almeida Garrett', 'Albufeira', 'Algarve', 'Portugal'),</code><br><code>('BJ''s Oceanside', 'Peixes e mariscos', 'Praia do Almargem', 'Quarteira', 'Algarve', 'Portugal'),</code><br><code>('Oliwander''s', 'Portuguesa contemporanea', 'Rua da Porta de Loule', 'Loule', 'Algarve', 'Portugal'),</code><br><code>('Taberna da Mare', 'Petiscos', 'Rua Direita 70', 'Portimao', 'Algarve', 'Portugal'),</code><br><code>('Tasca da Lota', 'Portuguesa tradicional', 'Avenida dos Descobrimentos', 'Lagos', 'Algarve', 'Portugal'),</code><br><code>('Pomò La Pasta Italiana', 'Italiana', 'Rua 25 de Abril', 'Lagos', 'Algarve', 'Portugal'),</code><br><code>('Go Bao', 'Asiatica', 'Rua Conselheiro Joaquim Machado', 'Lagos', 'Algarve', 'Portugal'),</code><br><code>('Gelicia', 'Gelataria', 'Rua Candido dos Reis', 'Lagos', 'Algarve', 'Portugal'),</code><br><code>('Ti Raul', 'Snacks e saudavel', 'Rua da Praia', 'Arrifana', 'Algarve', 'Portugal'),</code><br><code>('Restaurante do Cabrita', 'Marisqueira', 'Rua da Igreja', 'Carrapateira', 'Algarve', 'Portugal'),</code><br><code>('A Sereia', 'Rodizio de peixe', 'Rua Comandante Matoso', 'Sagres', 'Algarve', 'Portugal'),</code><br><code>('O Teodosio', 'Frango piri-piri', 'Rua 25 de Abril', 'Guia', 'Algarve', 'Portugal'),</code><br><code>('Casa do Polvo Tasquinha', 'Polvo e mariscos', 'Rua da Republica', 'Santa Luzia', 'Algarve', 'Portugal'),</code><br><code>('Polvo &amp; Companhia', 'Polvo e mariscos', 'Rua da Liberdade', 'Santa Luzia', 'Algarve', 'Portugal'),</code><br><code>('Ria', 'Peixes e mariscos', 'Anantara Vilamoura', 'Vilamoura', 'Algarve', 'Portugal'),</code><br><code>('Café Correia', 'Marisqueira', 'Rua 1º de Maio', 'Vila do Bispo', 'Algarve', 'Portugal'),</code><br><code>('Bon Bon', 'Gastronomia contemporanea', 'Rua do Monte Carvoeiro', 'Carvoeiro', 'Algarve', 'Portugal'),</code><br><code>('Prato Cheio', 'Portuguesa tradicional', 'Rua Dr. Francisco Sa Carneiro 23A', 'Lagos', 'Algarve', 'Portugal'),</code><br><code>('Casa da Igreja', 'Marisqueira', 'Rua de Cacela Velha 2', 'Cacela Velha', 'Algarve', 'Portugal'),</code><br><code>('Vila Lisa', 'Portuguesa tradicional', 'Rua da Hortinha', 'Portimao', 'Algarve', 'Portugal'),</code><br><code>('O Tonel', 'Portuguesa tradicional', 'Rua Dr. Augusto da Silva Carvalho', 'Tavira', 'Algarve', 'Portugal'),</code><br><code>('Cha Cha Cha', 'Portuguesa contemporanea', 'Rua Vasco da Gama', 'Olhao', 'Algarve', 'Portugal'),</code><br><code>('O Cantinho da Cristina', 'Portuguesa tradicional', 'Rua do Comercio', 'Olhao', 'Algarve', 'Portugal'),</code><br><code>('Restaurante Noelia', 'Peixes e mariscos', 'Avenida Ria Formosa', 'Cabanas de Tavira', 'Algarve', 'Portugal'),</code><br><code>('Restaurante Azenha do Mar', 'Marisqueira', 'Estrada Nacional 120', 'Aljezur', 'Algarve', 'Portugal'),</code><br><code>('Restaurante O Camilo', 'Peixes e mariscos', 'Praia do Camilo', 'Lagos', 'Algarve', 'Portugal'),</code><br><code>('Restaurante O Marinheiro', 'Mediterranea', 'Rua da Torre Velha', 'Albufeira', 'Algarve', 'Portugal'),</code><br><code>('Restaurante O Pescador', 'Peixes e mariscos', 'Rua 5 de Outubro', 'Quarteira', 'Algarve', 'Portugal'),</code><br><code>('Restaurante A Forja', 'Portuguesa tradicional', 'Rua da Barca', 'Portimao', 'Algarve', 'Portugal'),</code><br><code>('Restaurante O Alambique', 'Portuguesa tradicional', 'Estrada Nacional 125', 'Almancil', 'Algarve', 'Portugal'),</code><br><code>('Restaurante O Cais', 'Peixes e mariscos', 'Avenida dos Descobrimentos', 'Vilamoura', 'Algarve', 'Portugal'),</code><br><code>('Restaurante O Galeão', 'Portuguesa tradicional', 'Rua da Praia', 'Armação de Pêra', 'Algarve', 'Portugal'),</code><br><code>('Restaurante A Tasca', 'Petiscos', 'Rua do Comércio', 'Loulé', 'Algarve', 'Portugal'),</code><br><code>('Restaurante O Farol', 'Peixes e mariscos', 'Praia do Farol', 'Ilha do Farol', 'Algarve', 'Portugal'),</code><br><code>('Restaurante O Pátio', 'Portuguesa tradicional', 'Rua das Flores', 'Tavira', 'Algarve', 'Portugal'),</code><br><code>('Restaurante O Barril', 'Peixes e mariscos', 'Praia do Barril', 'Tavira', 'Algarve', 'Portugal'),</code><br><code>('Restaurante O Zé', 'Portuguesa tradicional', 'Rua da Alegria', 'Faro', 'Algarve', 'Portugal'),</code><br><code>('Restaurante O Pescador', 'Peixes e mariscos', 'Rua da Praia', 'Quarteira', 'Algarve', 'Portugal'),</code><br><code>('Restaurante A Marisqueira', 'Marisqueira', 'Avenida Marginal', 'Lagos', 'Algarve', 'Portugal'),</code><br><code>('Restaurante O Grelhador', 'Grelhados', 'Rua do Sol', 'Portimão', 'Algarve', 'Portugal'),</code><br><code>('Restaurante O Forno', 'Portuguesa tradicional', 'Rua do Forno', 'Silves', 'Algarve', 'Portugal'),</code><br><code>('Restaurante A Taberna', 'Petiscos', 'Rua da Taberna', 'Albufeira', 'Algarve', 'Portugal'),</code><br><code>('Restaurante O Barco', 'Peixes e mariscos', 'Avenida do Mar', 'Olhão', 'Algarve', 'Portugal'),</code><br><code>('Restaurante O Pátio das Laranjeiras', 'Portuguesa tradicional', 'Rua das Laranjeiras', 'Loulé', 'Algarve', 'Portugal');</code></p></td><td style="width:50%;"><p>Considerando que estamos em um ambiente com sistema operacional Windows e que o Docker Desktop já está instalado e em execução, podemos seguir com os passos a seguir.</p><h3>Instalando Redis localmente com Docker Desktop</h3><p>Execute o comando abaixo para baixar e iniciar o contêiner do Redis Server no seu ambiente Docker local.</p><pre><code class="language-plaintext">  docker run -d --name redis-server -p 6379:6379 -v redis-data:/data redis</code></pre><h3>Testar o Serviço</h3><p>O camando abixo faz um teste para ver se o Redis está em funcionamento.</p><pre><code class="language-plaintext">docker exec -it redis-server redis-cli
+<pre><code class="language-plaintext">
+USE meubanco;
+
+INSERT INTO restaurantes (Nome, Tipo, Endereco, Cidade, Regiao, Pais) VALUES
+('Luar da Foia', 'Portuguesa tradicional', 'Estrada da Foia', 'Monchique', 'Algarve', 'Portugal'),
+('Petisqueira 3 em Pipa', 'Petiscos', 'Rua do Prior 3', 'Faro', 'Algarve', 'Portugal'),
+('Casa da Rocha', 'Marisqueira', 'Praia da Rocha', 'Portimao', 'Algarve', 'Portugal'),
+('Sueste', 'Portuguesa tradicional', 'Rua Infante D. Henrique 55', 'Ferragudo', 'Algarve', 'Portugal'),
+('Vai e Volta', 'Grelhados de peixe', 'Avenida 5 de Outubro', 'Olhao', 'Algarve', 'Portugal'),
+('Matuya Sushi', 'Japonesa', 'Avenida Beira Mar', 'Armacao de Pera', 'Algarve', 'Portugal'),
+('Sexy Meat', 'Churrascaria', 'Rua Almeida Garrett', 'Albufeira', 'Algarve', 'Portugal'),
+('BJ''s Oceanside', 'Peixes e mariscos', 'Praia do Almargem', 'Quarteira', 'Algarve', 'Portugal'),
+('Oliwander''s', 'Portuguesa contemporanea', 'Rua da Porta de Loule', 'Loule', 'Algarve', 'Portugal'),
+('Taberna da Mare', 'Petiscos', 'Rua Direita 70', 'Portimao', 'Algarve', 'Portugal'),
+('Tasca da Lota', 'Portuguesa tradicional', 'Avenida dos Descobrimentos', 'Lagos', 'Algarve', 'Portugal'),
+('Pomò La Pasta Italiana', 'Italiana', 'Rua 25 de Abril', 'Lagos', 'Algarve', 'Portugal'),
+('Go Bao', 'Asiatica', 'Rua Conselheiro Joaquim Machado', 'Lagos', 'Algarve', 'Portugal'),
+('Gelicia', 'Gelataria', 'Rua Candido dos Reis', 'Lagos', 'Algarve', 'Portugal'),
+('Ti Raul', 'Snacks e saudavel', 'Rua da Praia', 'Arrifana', 'Algarve', 'Portugal'),
+('Restaurante do Cabrita', 'Marisqueira', 'Rua da Igreja', 'Carrapateira', 'Algarve', 'Portugal'),
+('A Sereia', 'Rodizio de peixe', 'Rua Comandante Matoso', 'Sagres', 'Algarve', 'Portugal'),
+('O Teodosio', 'Frango piri-piri', 'Rua 25 de Abril', 'Guia', 'Algarve', 'Portugal'),
+('Casa do Polvo Tasquinha', 'Polvo e mariscos', 'Rua da Republica', 'Santa Luzia', 'Algarve', 'Portugal'),
+('Polvo & Companhia', 'Polvo e mariscos', 'Rua da Liberdade', 'Santa Luzia', 'Algarve', 'Portugal'),
+('Ria', 'Peixes e mariscos', 'Anantara Vilamoura', 'Vilamoura', 'Algarve', 'Portugal'),
+('Café Correia', 'Marisqueira', 'Rua 1º de Maio', 'Vila do Bispo', 'Algarve', 'Portugal'),
+('Bon Bon', 'Gastronomia contemporanea', 'Rua do Monte Carvoeiro', 'Carvoeiro', 'Algarve', 'Portugal'),
+('Prato Cheio', 'Portuguesa tradicional', 'Rua Dr. Francisco Sa Carneiro 23A', 'Lagos', 'Algarve', 'Portugal'),
+('Casa da Igreja', 'Marisqueira', 'Rua de Cacela Velha 2', 'Cacela Velha', 'Algarve', 'Portugal'),
+('Vila Lisa', 'Portuguesa tradicional', 'Rua da Hortinha', 'Portimao', 'Algarve', 'Portugal'),
+('O Tonel', 'Portuguesa tradicional', 'Rua Dr. Augusto da Silva Carvalho', 'Tavira', 'Algarve', 'Portugal'),
+('Cha Cha Cha', 'Portuguesa contemporanea', 'Rua Vasco da Gama', 'Olhao', 'Algarve', 'Portugal'),
+('O Cantinho da Cristina', 'Portuguesa tradicional', 'Rua do Comercio', 'Olhao', 'Algarve', 'Portugal'),
+('Restaurante Noelia', 'Peixes e mariscos', 'Avenida Ria Formosa', 'Cabanas de Tavira', 'Algarve', 'Portugal'),
+('Restaurante Azenha do Mar', 'Marisqueira', 'Estrada Nacional 120', 'Aljezur', 'Algarve', 'Portugal'),
+('Restaurante O Camilo', 'Peixes e mariscos', 'Praia do Camilo', 'Lagos', 'Algarve', 'Portugal'),
+('Restaurante O Marinheiro', 'Mediterranea', 'Rua da Torre Velha', 'Albufeira', 'Algarve', 'Portugal'),
+('Restaurante O Pescador', 'Peixes e mariscos', 'Rua 5 de Outubro', 'Quarteira', 'Algarve', 'Portugal'),
+('Restaurante A Forja', 'Portuguesa tradicional', 'Rua da Barca', 'Portimao', 'Algarve', 'Portugal'),
+('Restaurante O Alambique', 'Portuguesa tradicional', 'Estrada Nacional 125', 'Almancil', 'Algarve', 'Portugal'),
+('Restaurante O Cais', 'Peixes e mariscos', 'Avenida dos Descobrimentos', 'Vilamoura', 'Algarve', 'Portugal'),
+('Restaurante O Galeão', 'Portuguesa tradicional', 'Rua da Praia', 'Armação de Pêra', 'Algarve', 'Portugal'),
+('Restaurante A Tasca', 'Petiscos', 'Rua do Comércio', 'Loulé', 'Algarve', 'Portugal'),
+('Restaurante O Farol', 'Peixes e mariscos', 'Praia do Farol', 'Ilha do Farol', 'Algarve', 'Portugal'),
+('Restaurante O Pátio', 'Portuguesa tradicional', 'Rua das Flores', 'Tavira', 'Algarve', 'Portugal'),
+('Restaurante O Barril', 'Peixes e mariscos', 'Praia do Barril', 'Tavira', 'Algarve', 'Portugal'),
+('Restaurante O Zé', 'Portuguesa tradicional', 'Rua da Alegria', 'Faro', 'Algarve', 'Portugal'),
+('Restaurante O Pescador', 'Peixes e mariscos', 'Rua da Praia', 'Quarteira', 'Algarve', 'Portugal'),
+('Restaurante A Marisqueira', 'Marisqueira', 'Avenida Marginal', 'Lagos', 'Algarve', 'Portugal'),
+('Restaurante O Grelhador', 'Grelhados', 'Rua do Sol', 'Portimão', 'Algarve', 'Portugal'),
+('Restaurante O Forno', 'Portuguesa tradicional', 'Rua do Forno', 'Silves', 'Algarve', 'Portugal'),
+('Restaurante A Taberna', 'Petiscos', 'Rua da Taberna', 'Albufeira', 'Algarve', 'Portugal'),
+('Restaurante O Barco', 'Peixes e mariscos', 'Avenida do Mar', 'Olhão', 'Algarve', 'Portugal'),
+('Restaurante O Pátio das Laranjeiras', 'Portuguesa tradicional', 'Rua das Laranjeiras', 'Loulé', 'Algarve', 'Portugal');
+
+</code></p>
+
+</td><td style="width:50%;"><p>Considerando que estamos em um ambiente com sistema operacional Windows e que o Docker Desktop já está instalado e em execução, podemos seguir com os passos a seguir.</p><h3>Instalando Redis localmente com Docker Desktop</h3><p>Execute o comando abaixo para baixar e iniciar o contêiner do Redis Server no seu ambiente Docker local.</p><pre><code class="language-plaintext">  docker run -d --name redis-server -p 6379:6379 -v redis-data:/data redis</code></pre><h3>Testar o Serviço</h3><p>O camando abixo faz um teste para ver se o Redis está em funcionamento.</p><pre><code class="language-plaintext">docker exec -it redis-server redis-cli
 &gt; SET meuTeste “Bom dia Carlos Vamberto Filho”
 &gt; GET meuTest
-&gt; exit</code></pre><h3>Installing MySQL Locally with Docker Desktop</h3><p>Vamos também rodar em um container o MySQL que usaremos nesta aplicação. Com o comando abaixo vamos rodar o MySQL na porta padrão 3306.</p><pre><code class="language-plaintext">docker run --name mysql-local -e MYSQL_ROOT_PASSWORD=Senha123  -p 3306:3306</code></pre><h3>Criando a tabela Restaurante</h3><p>Usei a aplicação MySQL Workbench para me conectar ao servidor do MySQL e criar a tabela de restaurantes em uma nova base de dados chamada “meubanco”.</p><pre><code class="language-plaintext">-- Cria o banco de dados se ainda não existir
+&gt; exit</code></pre><h3>Installing MySQL Locally with Docker Desktop</h3><p>Vamos também rodar em um container o MySQL que usaremos nesta aplicação. Com o comando abaixo vamos rodar o MySQL na porta padrão 3306.</p>
+
+<pre><code class="language-plaintext">docker run --name mysql-local -e MYSQL_ROOT_PASSWORD=Senha123  -p 3306:3306</code></pre><h3>Criando a tabela Restaurante</h3><p>Usei a aplicação MySQL Workbench para me conectar ao servidor do MySQL e criar a tabela de restaurantes em uma nova base de dados chamada “meubanco”.</p>
+
+<pre><code class="language-plaintext">
+-- Cria o banco de dados se ainda não existir
 CREATE DATABASE IF NOT EXISTS meubanco CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 -- Usa o banco de dados
 USE meubanco;
@@ -46,8 +108,66 @@ CREATE TABLE IF NOT EXISTS restaurantes (
     Cidade VARCHAR(100),
     Regiao VARCHAR(100),
     Pais VARCHAR(100)
-);</code></pre><h3>Insere registros na tabela Restaurantes</h3><p>Aqui vamos criar registros para 50 restaurantes existentes na região do Algarve em Portugal para demonstrar a API. Execute o script abaixo para inserir os registros:</p><pre><code class="language-plaintext">USE meubanco;
-</code></pre><p><code>INSERT INTO restaurantes (Nome, Tipo, Endereco, Cidade, Regiao, Pais) VALUES</code><br><code>('Luar da Foia', 'Portuguesa tradicional', 'Estrada da Foia', 'Monchique', 'Algarve', 'Portugal'),</code><br><code>('Petisqueira 3 em Pipa', 'Petiscos', 'Rua do Prior 3', 'Faro', 'Algarve', 'Portugal'),</code><br><code>('Casa da Rocha', 'Marisqueira', 'Praia da Rocha', 'Portimao', 'Algarve', 'Portugal'),</code><br><code>('Sueste', 'Portuguesa tradicional', 'Rua Infante D. Henrique 55', 'Ferragudo', 'Algarve', 'Portugal'),</code><br><code>('Vai e Volta', 'Grelhados de peixe', 'Avenida 5 de Outubro', 'Olhao', 'Algarve', 'Portugal'),</code><br><code>('Matuya Sushi', 'Japonesa', 'Avenida Beira Mar', 'Armacao de Pera', 'Algarve', 'Portugal'),</code><br><code>('Sexy Meat', 'Churrascaria', 'Rua Almeida Garrett', 'Albufeira', 'Algarve', 'Portugal'),</code><br><code>('BJ''s Oceanside', 'Peixes e mariscos', 'Praia do Almargem', 'Quarteira', 'Algarve', 'Portugal'),</code><br><code>('Oliwander''s', 'Portuguesa contemporanea', 'Rua da Porta de Loule', 'Loule', 'Algarve', 'Portugal'),</code><br><code>('Taberna da Mare', 'Petiscos', 'Rua Direita 70', 'Portimao', 'Algarve', 'Portugal'),</code><br><code>('Tasca da Lota', 'Portuguesa tradicional', 'Avenida dos Descobrimentos', 'Lagos', 'Algarve', 'Portugal'),</code><br><code>('Pomò La Pasta Italiana', 'Italiana', 'Rua 25 de Abril', 'Lagos', 'Algarve', 'Portugal'),</code><br><code>('Go Bao', 'Asiatica', 'Rua Conselheiro Joaquim Machado', 'Lagos', 'Algarve', 'Portugal'),</code><br><code>('Gelicia', 'Gelataria', 'Rua Candido dos Reis', 'Lagos', 'Algarve', 'Portugal'),</code><br><code>('Ti Raul', 'Snacks e saudavel', 'Rua da Praia', 'Arrifana', 'Algarve', 'Portugal'),</code><br><code>('Restaurante do Cabrita', 'Marisqueira', 'Rua da Igreja', 'Carrapateira', 'Algarve', 'Portugal'),</code><br><code>('A Sereia', 'Rodizio de peixe', 'Rua Comandante Matoso', 'Sagres', 'Algarve', 'Portugal'),</code><br><code>('O Teodosio', 'Frango piri-piri', 'Rua 25 de Abril', 'Guia', 'Algarve', 'Portugal'),</code><br><code>('Casa do Polvo Tasquinha', 'Polvo e mariscos', 'Rua da Republica', 'Santa Luzia', 'Algarve', 'Portugal'),</code><br><code>('Polvo &amp; Companhia', 'Polvo e mariscos', 'Rua da Liberdade', 'Santa Luzia', 'Algarve', 'Portugal'),</code><br><code>('Ria', 'Peixes e mariscos', 'Anantara Vilamoura', 'Vilamoura', 'Algarve', 'Portugal'),</code><br><code>('Café Correia', 'Marisqueira', 'Rua 1º de Maio', 'Vila do Bispo', 'Algarve', 'Portugal'),</code><br><code>('Bon Bon', 'Gastronomia contemporanea', 'Rua do Monte Carvoeiro', 'Carvoeiro', 'Algarve', 'Portugal'),</code><br><code>('Prato Cheio', 'Portuguesa tradicional', 'Rua Dr. Francisco Sa Carneiro 23A', 'Lagos', 'Algarve', 'Portugal'),</code><br><code>('Casa da Igreja', 'Marisqueira', 'Rua de Cacela Velha 2', 'Cacela Velha', 'Algarve', 'Portugal'),</code><br><code>('Vila Lisa', 'Portuguesa tradicional', 'Rua da Hortinha', 'Portimao', 'Algarve', 'Portugal'),</code><br><code>('O Tonel', 'Portuguesa tradicional', 'Rua Dr. Augusto da Silva Carvalho', 'Tavira', 'Algarve', 'Portugal'),</code><br><code>('Cha Cha Cha', 'Portuguesa contemporanea', 'Rua Vasco da Gama', 'Olhao', 'Algarve', 'Portugal'),</code><br><code>('O Cantinho da Cristina', 'Portuguesa tradicional', 'Rua do Comercio', 'Olhao', 'Algarve', 'Portugal'),</code><br><code>('Restaurante Noelia', 'Peixes e mariscos', 'Avenida Ria Formosa', 'Cabanas de Tavira', 'Algarve', 'Portugal'),</code><br><code>('Restaurante Azenha do Mar', 'Marisqueira', 'Estrada Nacional 120', 'Aljezur', 'Algarve', 'Portugal'),</code><br><code>('Restaurante O Camilo', 'Peixes e mariscos', 'Praia do Camilo', 'Lagos', 'Algarve', 'Portugal'),</code><br><code>('Restaurante O Marinheiro', 'Mediterranea', 'Rua da Torre Velha', 'Albufeira', 'Algarve', 'Portugal'),</code><br><code>('Restaurante O Pescador', 'Peixes e mariscos', 'Rua 5 de Outubro', 'Quarteira', 'Algarve', 'Portugal'),</code><br><code>('Restaurante A Forja', 'Portuguesa tradicional', 'Rua da Barca', 'Portimao', 'Algarve', 'Portugal'),</code><br><code>('Restaurante O Alambique', 'Portuguesa tradicional', 'Estrada Nacional 125', 'Almancil', 'Algarve', 'Portugal'),</code><br><code>('Restaurante O Cais', 'Peixes e mariscos', 'Avenida dos Descobrimentos', 'Vilamoura', 'Algarve', 'Portugal'),</code><br><code>('Restaurante O Galeão', 'Portuguesa tradicional', 'Rua da Praia', 'Armação de Pêra', 'Algarve', 'Portugal'),</code><br><code>('Restaurante A Tasca', 'Petiscos', 'Rua do Comércio', 'Loulé', 'Algarve', 'Portugal'),</code><br><code>('Restaurante O Farol', 'Peixes e mariscos', 'Praia do Farol', 'Ilha do Farol', 'Algarve', 'Portugal'),</code><br><code>('Restaurante O Pátio', 'Portuguesa tradicional', 'Rua das Flores', 'Tavira', 'Algarve', 'Portugal'),</code><br><code>('Restaurante O Barril', 'Peixes e mariscos', 'Praia do Barril', 'Tavira', 'Algarve', 'Portugal'),</code><br><code>('Restaurante O Zé', 'Portuguesa tradicional', 'Rua da Alegria', 'Faro', 'Algarve', 'Portugal'),</code><br><code>('Restaurante O Pescador', 'Peixes e mariscos', 'Rua da Praia', 'Quarteira', 'Algarve', 'Portugal'),</code><br><code>('Restaurante A Marisqueira', 'Marisqueira', 'Avenida Marginal', 'Lagos', 'Algarve', 'Portugal'),</code><br><code>('Restaurante O Grelhador', 'Grelhados', 'Rua do Sol', 'Portimão', 'Algarve', 'Portugal'),</code><br><code>('Restaurante O Forno', 'Portuguesa tradicional', 'Rua do Forno', 'Silves', 'Algarve', 'Portugal'),</code><br><code>('Restaurante A Taberna', 'Petiscos', 'Rua da Taberna', 'Albufeira', 'Algarve', 'Portugal'),</code><br><code>('Restaurante O Barco', 'Peixes e mariscos', 'Avenida do Mar', 'Olhão', 'Algarve', 'Portugal'),</code><br><code>('Restaurante O Pátio das Laranjeiras', 'Portuguesa tradicional', 'Rua das Laranjeiras', 'Loulé', 'Algarve', 'Portugal');</code></p></td></tr></tbody></table>
+);</code></pre>
+
+<h3>Insere registros na tabela Restaurantes</h3><p>Aqui vamos criar registros para 50 restaurantes existentes na região do Algarve em Portugal para demonstrar a API. Execute o script abaixo para inserir os registros:</p>
+
+<pre><code class="language-plaintext">
+USE meubanco;
+
+INSERT INTO restaurantes (Nome, Tipo, Endereco, Cidade, Regiao, Pais) VALUES
+('Luar da Foia', 'Portuguesa tradicional', 'Estrada da Foia', 'Monchique', 'Algarve', 'Portugal'),
+('Petisqueira 3 em Pipa', 'Petiscos', 'Rua do Prior 3', 'Faro', 'Algarve', 'Portugal'),
+('Casa da Rocha', 'Marisqueira', 'Praia da Rocha', 'Portimao', 'Algarve', 'Portugal'),
+('Sueste', 'Portuguesa tradicional', 'Rua Infante D. Henrique 55', 'Ferragudo', 'Algarve', 'Portugal'),
+('Vai e Volta', 'Grelhados de peixe', 'Avenida 5 de Outubro', 'Olhao', 'Algarve', 'Portugal'),
+('Matuya Sushi', 'Japonesa', 'Avenida Beira Mar', 'Armacao de Pera', 'Algarve', 'Portugal'),
+('Sexy Meat', 'Churrascaria', 'Rua Almeida Garrett', 'Albufeira', 'Algarve', 'Portugal'),
+('BJ''s Oceanside', 'Peixes e mariscos', 'Praia do Almargem', 'Quarteira', 'Algarve', 'Portugal'),
+('Oliwander''s', 'Portuguesa contemporanea', 'Rua da Porta de Loule', 'Loule', 'Algarve', 'Portugal'),
+('Taberna da Mare', 'Petiscos', 'Rua Direita 70', 'Portimao', 'Algarve', 'Portugal'),
+('Tasca da Lota', 'Portuguesa tradicional', 'Avenida dos Descobrimentos', 'Lagos', 'Algarve', 'Portugal'),
+('Pomò La Pasta Italiana', 'Italiana', 'Rua 25 de Abril', 'Lagos', 'Algarve', 'Portugal'),
+('Go Bao', 'Asiatica', 'Rua Conselheiro Joaquim Machado', 'Lagos', 'Algarve', 'Portugal'),
+('Gelicia', 'Gelataria', 'Rua Candido dos Reis', 'Lagos', 'Algarve', 'Portugal'),
+('Ti Raul', 'Snacks e saudavel', 'Rua da Praia', 'Arrifana', 'Algarve', 'Portugal'),
+('Restaurante do Cabrita', 'Marisqueira', 'Rua da Igreja', 'Carrapateira', 'Algarve', 'Portugal'),
+('A Sereia', 'Rodizio de peixe', 'Rua Comandante Matoso', 'Sagres', 'Algarve', 'Portugal'),
+('O Teodosio', 'Frango piri-piri', 'Rua 25 de Abril', 'Guia', 'Algarve', 'Portugal'),
+('Casa do Polvo Tasquinha', 'Polvo e mariscos', 'Rua da Republica', 'Santa Luzia', 'Algarve', 'Portugal'),
+('Polvo & Companhia', 'Polvo e mariscos', 'Rua da Liberdade', 'Santa Luzia', 'Algarve', 'Portugal'),
+('Ria', 'Peixes e mariscos', 'Anantara Vilamoura', 'Vilamoura', 'Algarve', 'Portugal'),
+('Café Correia', 'Marisqueira', 'Rua 1º de Maio', 'Vila do Bispo', 'Algarve', 'Portugal'),
+('Bon Bon', 'Gastronomia contemporanea', 'Rua do Monte Carvoeiro', 'Carvoeiro', 'Algarve', 'Portugal'),
+('Prato Cheio', 'Portuguesa tradicional', 'Rua Dr. Francisco Sa Carneiro 23A', 'Lagos', 'Algarve', 'Portugal'),
+('Casa da Igreja', 'Marisqueira', 'Rua de Cacela Velha 2', 'Cacela Velha', 'Algarve', 'Portugal'),
+('Vila Lisa', 'Portuguesa tradicional', 'Rua da Hortinha', 'Portimao', 'Algarve', 'Portugal'),
+('O Tonel', 'Portuguesa tradicional', 'Rua Dr. Augusto da Silva Carvalho', 'Tavira', 'Algarve', 'Portugal'),
+('Cha Cha Cha', 'Portuguesa contemporanea', 'Rua Vasco da Gama', 'Olhao', 'Algarve', 'Portugal'),
+('O Cantinho da Cristina', 'Portuguesa tradicional', 'Rua do Comercio', 'Olhao', 'Algarve', 'Portugal'),
+('Restaurante Noelia', 'Peixes e mariscos', 'Avenida Ria Formosa', 'Cabanas de Tavira', 'Algarve', 'Portugal'),
+('Restaurante Azenha do Mar', 'Marisqueira', 'Estrada Nacional 120', 'Aljezur', 'Algarve', 'Portugal'),
+('Restaurante O Camilo', 'Peixes e mariscos', 'Praia do Camilo', 'Lagos', 'Algarve', 'Portugal'),
+('Restaurante O Marinheiro', 'Mediterranea', 'Rua da Torre Velha', 'Albufeira', 'Algarve', 'Portugal'),
+('Restaurante O Pescador', 'Peixes e mariscos', 'Rua 5 de Outubro', 'Quarteira', 'Algarve', 'Portugal'),
+('Restaurante A Forja', 'Portuguesa tradicional', 'Rua da Barca', 'Portimao', 'Algarve', 'Portugal'),
+('Restaurante O Alambique', 'Portuguesa tradicional', 'Estrada Nacional 125', 'Almancil', 'Algarve', 'Portugal'),
+('Restaurante O Cais', 'Peixes e mariscos', 'Avenida dos Descobrimentos', 'Vilamoura', 'Algarve', 'Portugal'),
+('Restaurante O Galeão', 'Portuguesa tradicional', 'Rua da Praia', 'Armação de Pêra', 'Algarve', 'Portugal'),
+('Restaurante A Tasca', 'Petiscos', 'Rua do Comércio', 'Loulé', 'Algarve', 'Portugal'),
+('Restaurante O Farol', 'Peixes e mariscos', 'Praia do Farol', 'Ilha do Farol', 'Algarve', 'Portugal'),
+('Restaurante O Pátio', 'Portuguesa tradicional', 'Rua das Flores', 'Tavira', 'Algarve', 'Portugal'),
+('Restaurante O Barril', 'Peixes e mariscos', 'Praia do Barril', 'Tavira', 'Algarve', 'Portugal'),
+('Restaurante O Zé', 'Portuguesa tradicional', 'Rua da Alegria', 'Faro', 'Algarve', 'Portugal'),
+('Restaurante O Pescador', 'Peixes e mariscos', 'Rua da Praia', 'Quarteira', 'Algarve', 'Portugal'),
+('Restaurante A Marisqueira', 'Marisqueira', 'Avenida Marginal', 'Lagos', 'Algarve', 'Portugal'),
+('Restaurante O Grelhador', 'Grelhados', 'Rua do Sol', 'Portimão', 'Algarve', 'Portugal'),
+('Restaurante O Forno', 'Portuguesa tradicional', 'Rua do Forno', 'Silves', 'Algarve', 'Portugal'),
+('Restaurante A Taberna', 'Petiscos', 'Rua da Taberna', 'Albufeira', 'Algarve', 'Portugal'),
+('Restaurante O Barco', 'Peixes e mariscos', 'Avenida do Mar', 'Olhão', 'Algarve', 'Portugal'),
+('Restaurante O Pátio das Laranjeiras', 'Portuguesa tradicional', 'Rua das Laranjeiras', 'Loulé', 'Algarve', 'Portugal');
+
+</td></tr></tbody></table>
 
 ## Clean Architecture
 
@@ -55,7 +175,9 @@ CREATE TABLE IF NOT EXISTS restaurantes (
 
 ## Visual Studio 2022
 
-<table><tbody><tr><td><p>Now let's create a blank solution named <strong>RestaurantesAPI</strong> in Visual Studio 2022 and add the following projects:</p><ol><li><strong>Restaurantes.Application</strong> – Class Library - .NET 8</li><li><strong>Restaurantes.Domain</strong> – Class Library - .NET 8</li><li><strong>Restaurantes.Infrastructure</strong> – Class Library -&nbsp;.NET 8</li><li><strong>Restaurantes.API</strong> – ASP.NET Core Web API - .NET 8</li></ol><h2>Restaurantes.Domain</h2><p>Create the <strong>Restaurante.cs</strong> class in the <strong>Entities</strong> folder.</p><pre><code class="language-plaintext">public class Restaurante
+<table><tbody><tr><td><p>Now let's create a blank solution named <strong>RestaurantesAPI</strong> in Visual Studio 2022 and add the following projects:</p><ol><li><strong>Restaurantes.Application</strong> – Class Library - .NET 8</li><li><strong>Restaurantes.Domain</strong> – Class Library - .NET 8</li><li><strong>Restaurantes.Infrastructure</strong> – Class Library -&nbsp;.NET 8</li><li><strong>Restaurantes.API</strong> – ASP.NET Core Web API - .NET 8</li></ol><h2>Restaurantes.Domain</h2><p>Create the <strong>Restaurante.cs</strong> class in the <strong>Entities</strong> folder.</p>
+    
+<pre><code class="language-plaintext">public class Restaurante
 {
         public int Id { get; set; }
         public string Nome { get; set; }
@@ -64,17 +186,42 @@ CREATE TABLE IF NOT EXISTS restaurantes (
         public string Cidade { get; set; }
         public string Regiao { get; set; }
         public string Pais { get; set; }
-}</code></pre><p>Create the <strong>IRestauranteRepository.cs</strong> interface in the <strong>Interfaces</strong> folder.</p><pre><code class="language-plaintext">using Restaurantes.Domain.Entities;
+}
+</code></pre>
+    
+<p>Create the <strong>IRestauranteRepository.cs</strong> interface in the <strong>Interfaces</strong> folder.</p>
+
+<pre><code class="language-cs">
+using Restaurantes.Domain.Entities;
+
 namespace Restaurantes.Domain.Interfaces
 {
     public interface IRestauranteRepository
     {
-        Task&amp;lt;IEnumerable&amp;lt;Restaurante&amp;gt;&amp;gt; GetFilteredAsync(string? nome, string? tipo, string? cidade);
+        Task<IEnumerable<Restaurante>> GetFilteredAsync(string? nome, string? tipo, string? cidade);
     }
-} </code></pre><h2>Restaurantes.Application</h2><p>In <strong>Restaurantes.Application</strong>, add a <strong>Project Reference</strong> to the <strong>Restaurantes.Domain</strong> project by right-clicking on the <strong>Restaurantes.Application</strong> project and selecting <strong>Add &gt; Project Reference...</strong></p><p>&nbsp;</p><p>Then, add the following <strong>IRestauranteService.cs</strong> interface in the <strong>Services</strong> folder.</p><pre><code class="language-cs">using Restaurantes.Application.Requests;
+} 
+
+</code></pre>
+
+<h2>Restaurantes.Application</h2><p>In <strong>Restaurantes.Application</strong>, add a <strong>Project Reference</strong> to the <strong>Restaurantes.Domain</strong> project by right-clicking on the <strong>Restaurantes.Application</strong> project and selecting <strong>Add &gt; Project Reference...</strong></p><p>&nbsp;</p><p>Then, add the following <strong>IRestauranteService.cs</strong> interface in the <strong>Services</strong> folder.</p>
+
+<pre><code class="language-cs">using Restaurantes.Application.Requests;
+using Restaurantes.Application.Requests;
 using Restaurantes.Domain.Entities;
 
-</code></pre><p><code>namespace Restaurantes.Application.Services</code><br><code>{</code><br><code>&nbsp; &nbsp; public interface IRestauranteService</code><br><code>&nbsp; &nbsp; {</code><br><code>&nbsp; &nbsp; &nbsp; &nbsp; Task&lt;IEnumerable&lt;Restaurante&gt;&gt; GetFilteredAsync(GetRestaurantesRequest request);</code><br><code>&nbsp; &nbsp; }</code><br><code>}</code><br>&nbsp;</p><p>Create a class named <strong>GetRestaurantesRequest.cs</strong> in the <strong>Requests</strong> folder.</p><pre><code class="language-cs">namespace Restaurantes.Application.Requests
+namespace Restaurantes.Application.Services
+{
+    public interface IRestauranteService
+    {
+        Task<IEnumerable<Restaurante>> GetFilteredAsync(GetRestaurantesRequest request);
+    }
+}
+
+</code></pre><br>&nbsp;</p>
+
+
+<p>Create a class named <strong>GetRestaurantesRequest.cs</strong> in the <strong>Requests</strong> folder.</p><pre><code class="language-cs">namespace Restaurantes.Application.Requests
 {
     public class GetRestaurantesRequest
     {
@@ -83,7 +230,9 @@ using Restaurantes.Domain.Entities;
         public string? Cidade { get; set; }
     }
 }
-</code></pre><h2>Restaurantes.Infrastructure Project</h2><p>Add a <strong>Project Reference</strong> in <strong>Restaurantes.Infrastructure</strong> to the <strong>Restaurantes.Application</strong> project.</p><p>Using <strong>NuGet</strong>, add the package <strong>Microsoft.Extensions.Caching.StackExchangeRedis</strong> to the <strong>Restaurantes.Infrastructure</strong> project.</p><p>&nbsp;</p><p>Add the <strong>MyDbContext.cs</strong> class in the <strong>Context</strong> folder.</p><pre><code class="language-cs">using Microsoft.EntityFrameworkCore;
+</code></pre>
+
+<h2>Restaurantes.Infrastructure Project</h2><p>Add a <strong>Project Reference</strong> in <strong>Restaurantes.Infrastructure</strong> to the <strong>Restaurantes.Application</strong> project.</p><p>Using <strong>NuGet</strong>, add the package <strong>Microsoft.Extensions.Caching.StackExchangeRedis</strong> to the <strong>Restaurantes.Infrastructure</strong> project.</p><p>&nbsp;</p><p>Add the <strong>MyDbContext.cs</strong> class in the <strong>Context</strong> folder.</p><pre><code class="language-cs">using Microsoft.EntityFrameworkCore;
 using Restaurantes.Domain.Entities;
 namespace Restaurantes.Infrastructure.Context
 {
