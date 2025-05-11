@@ -129,7 +129,7 @@ namespace Restaurantes.Infrastructure.Repositories
   "Redis": "localhost:6379",
   "DefaultConnection": "server=localhost;port=3306;database=meubanco;user=root;password=Senha123"
 }
-</code></pre><p>Add the following code in the <strong>Program.cs</strong> file <strong>before</strong> the line <code>var app = builder.Build();</code>.</p><pre><code class="language-cs">// Configura a conexão com a base de dados MySQL
+</code></pre><p>Add the following code in the <strong>Program.cs</strong> file <strong>before</strong> the line "var app = builder.Build();".</p><pre><code class="language-cs">// Configura a conexão com a base de dados MySQL
 builder.Services.AddDbContext&lt;MyDbContext&gt;(options =&gt;
     options.UseMySql(
         builder.Configuration.GetConnectionString("DefaultConnection"),
