@@ -1,4 +1,4 @@
-## RestaurantesAPI
+## RestaurantesAPI Article .NET WebAPI + Redis
 
 ## Using Redis as Cache (Usando Redis como Cache)
 
